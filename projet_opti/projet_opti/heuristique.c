@@ -1,44 +1,4 @@
 #include "heuristique.h"
-//heuristique 1: on prend les tâches par ordre de deadline et on les ajoute sur la première machine libre
-/*
-void heuristique1(s_liste_taches * liste_taches, int nb) {
-	int tachesRetard = 0;
-	int datePremiereMachineDispo;
-
-	s_machine * tabMachine[3];
-
-	s_exemple * exemple = creer_exemple(liste_taches);
-
-	for(int i=0; i<nb; i++) {
-		printf("Tâche %d:\n", i);
-		
-
-
-		//on regarde d'abord quelle est la première machine libre
-		if ((exemple->m1->disponibilite <= exemple->m2->disponibilite) && (exemple->m1->disponibilite <= exemple->m3->disponibilite)) {
-			tabMachine[0] = exemple->m1;
-			if (exemple->m2->disponibilite <= exemple->m3->disponibilite) {
-				tabMachine[1] = exemple->m2;
-				tabMachine[2] = exemple->m3;
-			}
-			else {
-				tabMachine[1] = exemple->m3;
-				tabMachine[2] = exemple->m2;
-			}
-		}
-		else if()
-
-
-
-		//on regarde d'abord quelle est la première machine libre
-		if ((exemple->m1->disponibilite <= exemple->m2->disponibilite) && (exemple->m2->disponibilite <= exemple->m3->disponibilite)) {
-			//puis on vérifie si la tâche peut être réalisé avant la période d'indisponibilité et si elle peut être effectué avant la deadline
-			if ((exemple->m1->dateDeb[i] - exemple->m1->disponibilite) >= exemple->liste_taches->taches[0]->duree && exemple->liste_taches->taches[i]->deadline <= (exemple->m1->disponibilite + exemple->liste_taches->taches[i]->duree)) {
-
-			}
-		}
-	}
-}*/
 
 //on place les tâches dans la première machine disponible
 //en respectant les contraintes d'indisponibilités de chaque machine

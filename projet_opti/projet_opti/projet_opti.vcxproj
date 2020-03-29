@@ -117,11 +117,9 @@
   <ItemGroup>
     <ClCompile Include="heuristique.c" />
     <ClCompile Include="main.c" />
-    <ClCompile Include="structures.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="heuristique.h" />
-    <ClInclude Include="structures.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

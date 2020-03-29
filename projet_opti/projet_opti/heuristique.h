@@ -1,8 +1,5 @@
 #pragma once
 
-//#include "structures.h"
-
-
 typedef struct ordonnancement {
 	int nbMachines;
 	int nbTaches;

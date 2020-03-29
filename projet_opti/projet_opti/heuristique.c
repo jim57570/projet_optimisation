@@ -79,3 +79,51 @@ void heuristique1(s_ordonnancement o) {
 		
 	}
 }
+
+//on essaye de placer le maximum de tâches sur une machine
+//en respectant les périodes d'indisponibilités
+void heuristique2(s_ordonnancement o) {
+	int i = 0;
+	int tacheEnCours;
+	int dateDispo[3];
+	while (i <= o.nbTaches) {
+		tacheEnCours = i;
+		//on calcule le temps disponible sur chaque machine avant la période d'indisponibilité
+		for (int j = 0; j < 3; j++) {
+			dateDispo[j] = o.dateDebIndisponibilite[j] - o.dateDisponible[j];
+		}
+		//ensuite on regarde si on peut placer les tâches sur les machines avant la période d'indisponibilité
+		//dès qu'on peut on sort de la boucle for pour recalculer le temps disponible
+		for (int j = 0; j < 3; j++) {
+			if ((o.dureesTaches[i] <= dateDispo[j]) && (o.deadlinesTaches[i] >= o.dateDisponible[j] + o.dureesTaches[i])) {
+				o.solutions[i] = j;
+				o.dateDisponible[j] += o.dureesTaches[i];
+				i++;
+				break;
+			}
+		}
+		//si on a pas pu placer la tâche avant les périodes d'indisponibilité, on regarde pour les placer après
+		if (i == tacheEnCours) {
+			for (int j = 0; j < 3; j++) {
+				if (o.deadlinesTaches[i] >= (o.dateFinIndisponibilite[j] + o.dureesTaches[i])) {
+					o.solutions[i] = j;
+					i++;
+					break;
+				}
+			}
+			//si on a toujours pas pu placer la tâche, alors on ne peut pas l'exécuter
+			if (i == tacheEnCours) {
+				o.solutions[i] = 4;
+				i++;
+			}
+		}
+	}
+}
+
+void heuristique3(s_ordonnancement o) {
+
+}
+
+void heuristique4(s_ordonnancement o) {
+
+}

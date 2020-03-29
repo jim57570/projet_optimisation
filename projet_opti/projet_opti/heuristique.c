@@ -5,17 +5,17 @@
 void heuristique1(s_ordonnancement o) {
 	int i = 0;
 	int tacheEnCours;
-	int dateDispo[3];
+	int periodeDispo[3];
 	while (i <= o.nbTaches) {
 		tacheEnCours = i;
 		//on calcule le temps disponible sur chaque machine avant la période d'indisponibilité
 		for (int j = 0; j < 3; j++) {
-			dateDispo[j] = o.dateDebIndisponibilite[j] - o.dateDisponible[j];
+			periodeDispo[j] = o.dateDebIndisponibilite[j] - o.dateDisponible[j];
 		}
 
 		//ensuite on regarde si on peut placer les tâches sur les machines avant la période d'indisponibilité
 		for (int j = 0; j < 3; j++) {
-			if ((o.dureesTaches[i] <= dateDispo[j]) && (o.deadlinesTaches[i] <= o.dateDebIndisponibilite[j])) {
+			if ((o.dureesTaches[i] <= periodeDispo[j]) && (o.deadlinesTaches[i] <= o.dateDebIndisponibilite[j])) {
 				o.solutions[i] = j;
 				o.dateDisponible[j] += o.dureesTaches[i];
 				i++;
@@ -45,17 +45,17 @@ void heuristique1(s_ordonnancement o) {
 void heuristique2(s_ordonnancement o) {
 	int i = 0;
 	int tacheEnCours;
-	int dateDispo[3];
+	int periodeDispo[3];
 	while (i <= o.nbTaches) {
 		tacheEnCours = i;
 		//on calcule le temps disponible sur chaque machine avant la période d'indisponibilité
 		for (int j = 0; j < 3; j++) {
-			dateDispo[j] = o.dateDebIndisponibilite[j] - o.dateDisponible[j];
+			periodeDispo[j] = o.dateDebIndisponibilite[j] - o.dateDisponible[j];
 		}
 		//ensuite on regarde si on peut placer les tâches sur les machines avant la période d'indisponibilité
 		//dès qu'on peut on sort de la boucle for pour recalculer le temps disponible
 		for (int j = 0; j < 3; j++) {
-			if ((o.dureesTaches[i] <= dateDispo[j]) && (o.deadlinesTaches[i] >= o.dateDisponible[j] + o.dureesTaches[i])) {
+			if ((o.dureesTaches[i] <= periodeDispo[j]) && (o.deadlinesTaches[i] >= o.dateDisponible[j] + o.dureesTaches[i])) {
 				o.solutions[i] = j;
 				o.dateDisponible[j] += o.dureesTaches[i];
 				i++;

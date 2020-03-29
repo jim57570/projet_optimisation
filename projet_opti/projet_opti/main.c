@@ -55,6 +55,18 @@ int main() {
 		printf("Tache %d sur la machine %d\n", i, probleme.solutions[i]);
 	}
 	
+	printf("\n\n");
+	//on réinitialise les dates de disponibilités des machines et la solution
+	int ouiouioui[3] = { 0, 0, 0 };
+	int nonnonnon[5] = { 4, 4, 4, 4, 4 };
+	probleme.dateDisponible = ouiouioui;
+	probleme.solutions = nonnonnon;
+
+	heuristique4(probleme);
+
+	for (int i = 0; i < 5; i++) {
+		printf("Tache %d sur la machine %d\n", i, probleme.solutions[i]);
+	}
 
 	scanf_s("%s", exit);
 

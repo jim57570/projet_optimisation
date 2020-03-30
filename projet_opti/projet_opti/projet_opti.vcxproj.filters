@@ -21,9 +21,15 @@
     <ClCompile Include="heuristique.c">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="genetique.c">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="heuristique.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="genetique.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

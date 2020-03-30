@@ -1,5 +1,6 @@
-#include <stdio.h>
+
 #include "heuristique.h"
+#include "genetique.h"
 
 void afficher(s_ordonnancement o) {
 	for (int i = 0; i < 5; i++) {
@@ -66,6 +67,10 @@ int main() {
 	heuristique4(probleme);
 	printf("Résultat heuristique 4:\n");
 	afficher(probleme);
+
+
+	//lancement de l'algo genetique
+	algo_genetique();
 
 	scanf_s("%s", exit);
 
